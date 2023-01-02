@@ -1,0 +1,35 @@
+.containerFilter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+.filter{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+.buttonFilter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: -1rem;
+}
+.selectFilter{
+    border-radius: 8px;
+    border-color: #9cdaf3;
+    font-family: 'Jua', sans-serif;
+    color: #4e3818;
+}
+
+.buttonReinice{
+    font-family: 'Jua', sans-serif;
+    height: 30px;
+    width: 80px;
+    color: #4e3818;
+    border: none;
+    border-radius: 8px;
+    background-color: #bfa581;
+    cursor: pointer;
+}
