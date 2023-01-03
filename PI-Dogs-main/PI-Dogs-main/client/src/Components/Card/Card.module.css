@@ -1,0 +1,36 @@
+.card {
+    background: rgb(250, 251, 255);
+   border: none;
+    border-radius: 10px;
+    width: 200px;
+    overflow: hidden;
+    height: 330px;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 15px;
+    box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.75);
+    background-color: #9cdaf3;
+}
+
+.img {
+    width: 100%;
+    height: 150px;
+    border-radius: 15px;
+    padding: 0;
+}
+
+.h{
+    font-family: 'Jua', sans-serif;
+    color: #3e2c12;
+    font-weight: bold;
+    
+}
+
+p{
+    font-family: 'Jua', sans-serif;
+    color: #4e3818;
+    -webkit-text-stroke: 0.1px white
+}
+.link{
+    text-decoration: none;
+}
