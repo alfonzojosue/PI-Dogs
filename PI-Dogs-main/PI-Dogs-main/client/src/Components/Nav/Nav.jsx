@@ -32,9 +32,9 @@ function Nav() {
       <Link to='/' className={style.linkTitle}><h1 className={style.title}>Dogbook</h1></Link>
       </div>
       <ul>
-        <li><Link to='/Home' className={style.link}>Inicie </Link> </li>
+        <li><Link to='/home' className={style.link}>Inicie </Link> </li>
         <li><Link to='/form'className={style.link}>Create</Link></li>
-        <li ><Link to={<Home/>} className={style.link} >About</Link></li>
+        <li ><Link to='/about' className={style.link} >About</Link></li>
         <li><Link to={<Home/>} className={style.link}>Imagen</Link></li> 
       </ul>
       <form className={style.containerSearch} onSubmit={dispatchEvent}>

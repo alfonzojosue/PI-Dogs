@@ -1,0 +1,23 @@
+.containerText {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.subContainer{
+    width: 600px;
+}
+
+.title{
+    font-family: 'Jua', sans-serif;
+    color: #3e2c12;
+    font-weight: bold;
+}
+
+.text {
+    margin-top: 5rem;
+    font-size: 1.5rem;
+}

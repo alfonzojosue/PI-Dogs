@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import Home from './View/Home/Home';
 import ViewForm from './View/Form/ViewForm';
 import DogDetail from './View/DogDetail/DogDetail';
-import Filters from './Components/Filters/Filters';
+import ContainerAbout from './container/About/ContainerAbout';
 
 
 
@@ -22,8 +22,8 @@ function App() {
      exact path="/dogs/:id"
      component={DogDetail}/>
      <Route
-     exact path="/filter"
-     component={Filters}/>
+     exact path="/about"
+     component={ContainerAbout}/>
   
     </div>
   );
