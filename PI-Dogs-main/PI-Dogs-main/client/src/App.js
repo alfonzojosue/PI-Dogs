@@ -5,6 +5,7 @@ import Home from './View/Home/Home';
 import ViewForm from './View/Form/ViewForm';
 import DogDetail from './View/DogDetail/DogDetail';
 import ContainerAbout from './container/About/ContainerAbout';
+import { ContainerCollage } from './container/ContainerCollage/ContainerCollage';
 
 
 
@@ -24,6 +25,9 @@ function App() {
      <Route
      exact path="/about"
      component={ContainerAbout}/>
+    <Route
+     exact path="/collage"
+     component={ContainerCollage}/>
   
     </div>
   );

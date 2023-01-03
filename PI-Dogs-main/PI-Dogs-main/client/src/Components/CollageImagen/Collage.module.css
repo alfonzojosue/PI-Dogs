@@ -1,0 +1,35 @@
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+    flex-direction: column;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+.containerImg{
+    width: 340px;
+    height: 340px;
+}
+
+.img{
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    box-shadow: 0 8px 8px 0 black;
+}
+.title{
+    font-family: 'Jua', sans-serif;
+    color: #f4dfa7;
+    font-weight: bold;
+}
+
+.containerImg :hover {
+    transform: scale(1.03);
+    transition-duration: 1s;
+    cursor: pointer;
+}

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import style from './Nav.module.css'
-import Home from '../../View/Home/Home'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { getDogByName } from '../../redux/actions/actions'
@@ -35,7 +34,7 @@ function Nav() {
         <li><Link to='/home' className={style.link}>Inicie </Link> </li>
         <li><Link to='/form'className={style.link}>Create</Link></li>
         <li ><Link to='/about' className={style.link} >About</Link></li>
-        <li><Link to={<Home/>} className={style.link}>Imagen</Link></li> 
+        <li><Link to='/collage' className={style.link}>Imagen</Link></li> 
       </ul>
       <form className={style.containerSearch} onSubmit={dispatchEvent}>
     
