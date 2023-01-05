@@ -82,10 +82,10 @@ const rootReducer = (state = initialState, action) => {
           };
 
       case REINICE: 
-      const data = [...state.dogs]
+      
       return {
         ...state,
-        filterDog: [...data]
+        filterDog: []
       };
        case CREATE_DOG:
       return {
@@ -93,23 +93,25 @@ const rootReducer = (state = initialState, action) => {
       };
       case GET_DOG_DB_OR_API: 
       const dbOrApi = [...state.dogs]
-      if(action.payload === "db"){
-       let array = dbOrApi.filter(e => typeof e.id !== "number")
-       return{
-        ...state,
-        filterDog : [...array]
-       }
-      }
-      if(action.payload === "api") {
-       let array = dbOrApi.filter(e => typeof e.id === "number")
-       return{
+      if(action.payload === "api"){
+      let array = dbOrApi.filter(e => typeof e.id === "number")
+      return {
         ...state,
         filterDog: [...array]
-       }
-      }
+      
+  }}
+      if(action.payload === "db"){
+         let array = dbOrApi.filter(e => typeof e.id !== "number")
+         return{
+          ...state,
+          filterDog:[...array]
+         }
+         
+   };
       return{
         ...state
       }
+     
      
     default:
       return {

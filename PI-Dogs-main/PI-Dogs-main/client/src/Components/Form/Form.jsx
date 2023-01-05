@@ -5,9 +5,11 @@ import { useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { createDog, getTemperament } from '../../redux/actions/actions'
 
-const Form = ({data}) => {
-  const dispatch = useDispatch()
 
+
+const Form = () => {
+  const dispatch = useDispatch()
+  let i = 0
   const [state, setState] = useState({
     name: "",
     min_height: "",
@@ -23,9 +25,11 @@ const Form = ({data}) => {
   const [errors, setErrors] = useState({});
   let temperaments = useSelector((state) => state.temperaments);
 
+ 
+  
   useEffect(() => {
     dispatch(getTemperament());
-  }, [dispatch]);
+    }, [dispatch]);
 
    function handleChange(e) {
     setState({
@@ -47,12 +51,12 @@ const Form = ({data}) => {
       errors.min_weight !== undefined ||
       errors.max_weight !== undefined ||
       errors.min_life_span !== undefined ||
-      errors.max_life_span !== undefined
+      errors.max_life_span !== undefined 
     ) {
       e.preventDefault();
       return alert("Sorry, all fields are required except image");
     } else if (
-      state.name === "" ||
+      state.name === errors ||
       state.min_height === "" ||
       state.max_height === "" ||
       state.min_weight === "" ||
@@ -79,10 +83,10 @@ const Form = ({data}) => {
         height: `${state.min_height} - ${state.max_height}`,
         weight: `${state.min_weight} - ${state.max_weight}`,
         life_span: `${state.min_life_span} - ${state.max_life_span} years`,
-        img: state.image,
+        img: state.image? state.image : 
+        'https://www.soy502.com/sites/default/files/styles/full_node/public/2022/Feb/05/meme_perrito_cuando_no_quieres_dar_explicaciones_soy502_guatemala.jpg',
         temperament: [...state.temperaments],
       };
-      console.log(dog);
       setState({
         name: "",
         min_height: "",
@@ -95,19 +99,21 @@ const Form = ({data}) => {
         temperaments: [],
       });
       dispatch(createDog(dog));
-      alert("Successfully Created New Doggi :D");
+      alert("Successfull Created New Dogg");
+     
     
     }
   }
-
-  function addTemp(e) {
+function addTemp(e) {
+   
     setState({
       ...state,
       temperaments : [...state.temperaments, e.target.value],
-      });
-    console.log(state.temperaments)
-  }
-
+      temperamentsNumber: e.target.value,
+      
+  });
+      
+}
   function validate(input) {
     let expresion = /^(?![ .]+$)[a-zA-Z .]*$/gm;
     let errors = {};
@@ -115,26 +121,26 @@ const Form = ({data}) => {
       errors.name = "Name is missing";
     } else if (expresion.test(input.name) === false) {
       errors.name = "Name invalid";
-    } else if (!input.min_height) {
+    } else if (!input.min_weight) {
+      errors.min_weight = "Min weight is missing";
+    } else if (input.min_weight <= 0) {
+      errors.min_weight = "weight cannot be negative or zero";
+    } else if (!input.max_weight) {
+      errors.max_weight = "Max weight is missing";
+    } else if (input.max_weight <= 0) {
+      errors.max_weight = "weight cannot be negative or zero";
+    } else if (parseInt(input.min_weight) >= parseInt(input.max_weight)) {
+      errors.max_weight = "Max weight can not be less";
+    } else if (input.min_height === "") {
       errors.min_height = "Min height is missing";
     } else if (input.min_height <= 0) {
-      errors.min_height = "height cannot be negative or zero";
+      errors.min_height = "Height can not be less";
     } else if (!input.max_height) {
       errors.max_height = "Max height is missing";
     } else if (input.max_height <= 0) {
       errors.max_height = "height cannot be negative or zero";
     } else if (parseInt(input.min_height) >= parseInt(input.max_height)) {
       errors.max_height = "Max height can not be less";
-    } else if (!input.min_weight) {
-      errors.min_weight = "Min weight is missing";
-    } else if (input.min_weight <= 0) {
-      errors.min_weight = "Weight can not be less";
-    } else if (!input.max_weight) {
-      errors.max_weight = "Max weight is missing";
-    } else if (input.max_weight <= 0) {
-      errors.max_weight = "Weight cannot be negative or zero";
-    } else if (parseInt(input.min_weight) >= parseInt(input.max_weight)) {
-      errors.max_weight = "Max weight can not be less";
     } else if (!input.min_life_span) {
       errors.min_life_span = "Min life is missing";
     } else if (input.min_life_span <= 0) {
@@ -156,7 +162,7 @@ const Form = ({data}) => {
         <form className={style.form}  onSubmit={(e) => handleSubmit(e)}>
         <label htmlFor="">Name</label>
         <input type="text" name="name" value={state.name} onChange={(e) => handleChange(e)}  />
-        {errors.name && <p className="pop-up">{errors.name}</p>}
+        {errors.name && <p className={style.error}>{errors.name}</p>}
         <div>
         <p className={style.text}>Weight</p>
         <label htmlFor="" className={style.min}>Min</label>
@@ -168,43 +174,45 @@ const Form = ({data}) => {
         <p className={style.text}>Height</p>
         <label htmlFor="" className={style.min}>Min</label>
         <input type="text" className={style.inputMin} name="min_height" value={state.min_height} onChange={(e) => handleChange(e)} />
-         {errors.min_height && <p className="pop-up">{errors.min_height}</p>}
+         {errors.min_height?  <p className={style.error}>{errors.min_height}</p> : ''}
         <label htmlFor="" className={style.max}>Max</label>
         <input type="text" className={style.inputMin} name="max_height" value={state.max_height} onChange={(e) => handleChange(e)}  />
-        {errors.max_height && <p className="pop-up">{errors.max_height}</p>}
+        {errors.max_height? <p className={style.error}>{errors.max_height}</p> : ''}
         </div>
         <div>
         <p className={style.text}>Life Span</p>
         <label htmlFor="" className={style.min}>Min</label>
         <input type="text" className={style.inputMin} name="min_life_span" value={state.min_life_span} onChange={(e) => handleChange(e)} />
-          {errors.min_life_span && (<p className="pop-up">{errors.min_life_span}</p>)}
+          {errors.min_life_span?  (<p className={style.error}>{errors.min_life_span}</p>): ''}
         <label htmlFor="" className={style.max}>Max</label>
         <input type="text" className={style.inputMin} name="max_life_span" value={state.max_life_span} onChange={(e) => handleChange(e)}  />
-        {errors.max_life_span && (<p className="pop-up">{errors.max_life_span}</p>)}
+        {errors.max_life_span? (<p className={style.error}>{errors.max_life_span}</p>) : ''}
         </div>
         <label htmlFor="">Imagen</label>
-        <input type="text"  name="image" value={state.image} onChange={(e) => handleChange(e)}/>
+        <input type="url"  name="image" value={state.image} onChange={(e) => handleChange(e)}/>
         <label htmlFor="">Temperaments</label>
         <select name="" id="" className={style.selectTemperaments} onChange={(e) => addTemp(e)}>
             <option value="">Select Temperament</option>
-            {/* <br /> */}
-            {temperaments &&
-              temperaments.map((e) => {
+            {temperaments.map((e) => {
                 return (
                   <option
-                    e={e.name}
+                    name={e.name}
                     key={e.id}
-                    value={e.id}
+                    value={e.name}
                   >
                     {e.name}
                   </option>
                 );
               })}
         </select>
-
-
+          <div className={style.temperaments}>
+          {state.temperaments.map(e => (
+            <p key={i++} className={style.temperamentsP}>{e}</p>
+          ))}
+          </div>
         <button className={style.buttonCreate}>Create Dog</button>
         </form>
+       
         
     </div>
   )

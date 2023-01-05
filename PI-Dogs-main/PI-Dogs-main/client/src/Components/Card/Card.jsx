@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 
 const Card =({data, lastPage, firstPage}) => {
-  console.log(data)
   return (
     <>
     {data? 

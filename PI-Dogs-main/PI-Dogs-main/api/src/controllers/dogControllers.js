@@ -56,7 +56,7 @@ const postDog = async(req, res) => {
     try {
     const newDog = await Dog.create({name: name, height: height, weight: weight, life_span: life_span, img: img})
     let tempAssociated = await Temperament.findAll({
-        where: {id: temperament}
+        where: {name: temperament}
     })
     newDog.addTemperaments(tempAssociated)
     res.status(200).json(newDog)

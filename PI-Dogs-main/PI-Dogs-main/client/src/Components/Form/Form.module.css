@@ -77,3 +77,15 @@ label{
         font-family: 'Jua', sans-serif;
         color: #4e3818;
 }
+
+.temperaments {
+    display: flex;
+}
+
+.temperamentsP{
+    margin: 4px;
+}
+
+.error{
+    color: red;
+}

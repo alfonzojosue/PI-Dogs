@@ -1,12 +1,12 @@
 import React from 'react'
 import style from './Pagination.module.css'
 
+
 const Pagination = ({totalDog, dogForPage, setCurrentPage, currentPage}) => {
     const pagesNumber = [] 
     for(let i = 1; i <= Math.ceil(totalDog /dogForPage); i++ ){
         pagesNumber.push(i)
     }
-
     const onPreviewPage = () =>{
         setCurrentPage(currentPage - 1)
     }
@@ -16,6 +16,7 @@ const Pagination = ({totalDog, dogForPage, setCurrentPage, currentPage}) => {
     const onSpecificPage = (n) => {
         setCurrentPage(n)
     }
+    
   return (
     <nav className={style.ContainerPagination}>
         <ul className={style.ul}>
