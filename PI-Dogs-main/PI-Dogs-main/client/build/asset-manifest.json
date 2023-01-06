@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b651fa96.chunk.css",
+    "main.js": "/static/js/main.ae65be67.chunk.js",
+    "main.js.map": "/static/js/main.ae65be67.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.cf175132.js",
+    "runtime-main.js.map": "/static/js/runtime-main.cf175132.js.map",
+    "static/js/2.026509ba.chunk.js": "/static/js/2.026509ba.chunk.js",
+    "static/js/2.026509ba.chunk.js.map": "/static/js/2.026509ba.chunk.js.map",
+    "static/js/3.3955ddcc.chunk.js": "/static/js/3.3955ddcc.chunk.js",
+    "static/js/3.3955ddcc.chunk.js.map": "/static/js/3.3955ddcc.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.b651fa96.chunk.css.map": "/static/css/main.b651fa96.chunk.css.map",
+    "static/js/2.026509ba.chunk.js.LICENSE.txt": "/static/js/2.026509ba.chunk.js.LICENSE.txt",
+    "static/media/Inice.module.css": "/static/media/32274526.8df7e16b.jpg",
+    "static/media/ZKZg.90672f1d.gif": "/static/media/ZKZg.90672f1d.gif",
+    "static/media/ebfbbf96cb4bd870570c9bdb99168525.3d006a9c.gif": "/static/media/ebfbbf96cb4bd870570c9bdb99168525.3d006a9c.gif",
+    "static/media/ContainerCollage.module.css": "/static/media/kisspng-dog-blue-blue-dog-footprints-5a917c4b842746.3779873415194839795413.ad9ce73d.png",
+    "static/media/pata.93baf85e.png": "/static/media/pata.93baf85e.png",
+    "static/media/pngwing.com.abe235da.png": "/static/media/pngwing.com.abe235da.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cf175132.js",
+    "static/js/2.026509ba.chunk.js",
+    "static/css/main.b651fa96.chunk.css",
+    "static/js/main.ae65be67.chunk.js"
+  ]
+}

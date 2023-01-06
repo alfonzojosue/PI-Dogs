@@ -44,6 +44,7 @@ const handleTemperamentsChange = (e) => {
 const handleDogApiOrDb = (e) => {
   if(e.target.value !== ''){
     dispatch(getDogDbOrApi(e.target.value))
+    
   }else {
     dispatch(getDogs())
   }
@@ -57,26 +58,26 @@ const handleDogApiOrDb = (e) => {
                 <option value="" key={"bothAlph"}>
                   Alphabetic Order
                 </option>
-                <option value="abc" key={"abc"}>
+                <option value="abc" key="abc">
                   A-Z
                 </option>
-                <option value="cba" key={"cba"}>
+                <option value="cba" key="cba">
                   Z-A
                 </option>
               </select>
             </div>
          <div className={style.filter}>
               <select onChange={(e) => handleWChange(e)} className={style.selectFilter}>
-                <option value="" key={"bothWeight"}>
+                <option value="" key="bothWeight">
                   Weight Order
                 </option>
-                <option value="-/+">Minor to Major</option>
-                <option value="+/-">Major to Minor</option>
+                <option value="-/+" key="-/+">Minor to Major</option>
+                <option value="+/-" key="+/-">Major to Minor</option>
               </select>
             </div>
             <div className={style.filter}>
               <select name="" id="" onChange={(e) => handleTemperamentsChange(e)} className={style.selectFilter}>
-                <option value="" key={"bothTemperamenst"}>
+                <option value="" key="bothTemperamenst">
                  Temperaments Order
                 </option>
             {temperaments.map(element =>(
@@ -86,11 +87,11 @@ const handleDogApiOrDb = (e) => {
             </div>
              <div className={style.filter}>
               <select onChange={(e) => handleDogApiOrDb(e)} className={style.selectFilter}>
-                <option value="" key={"bothWeight"}>
+                <option value="" key="apidb">
                    API/DB
                 </option>
-                <option value="api">API</option>
-                <option value="db">DB</option>
+                <option value="api" key="api">API</option>
+                <option value="db" key="db">DB</option>
               </select>
             </div>
             <div className={style.buttonFilter}>

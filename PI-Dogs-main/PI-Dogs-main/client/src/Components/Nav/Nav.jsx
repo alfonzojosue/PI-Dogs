@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import style from './Nav.module.css'
-import { Link } from 'react-router-dom'
+import { Link, } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { getDogByName } from '../../redux/actions/actions'
 import lupa from '../../imagen/lupa.png'
 
 
-
-//import {Link} from 'react-router-dom'
 
 function Nav() {
   const [name, setName] = useState('')
@@ -20,8 +18,11 @@ function Nav() {
   const dispatchEvent = (event) => {
     event.preventDefault()
     dispatch(getDogByName(name))
-      setName('')
-  }
+    setName('')
+   
+}
+
+  
 
 
 
@@ -39,7 +40,7 @@ function Nav() {
       <form className={style.containerSearch} onSubmit={dispatchEvent}>
     
       <input type="text" className={style.search} onChange={changeInput} value={name} /> 
-      <img src={lupa} alt="lupa" className={style.lupa} onClick={dispatchEvent}/>
+      <Link to="/home"><img src={lupa} alt="lupa" className={style.lupa} onClick={dispatchEvent}/></Link>
       </form>
       
     </nav>
