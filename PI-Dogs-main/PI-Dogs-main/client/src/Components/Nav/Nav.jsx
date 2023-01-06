@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import style from './Nav.module.css'
 import { Link, } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { getDogByName } from '../../redux/actions/actions'
+import { getDogByName, reinice } from '../../redux/actions/actions'
 import lupa from '../../imagen/lupa.png'
 
 
@@ -22,6 +22,10 @@ function Nav() {
    
 }
 
+const click = () => {
+  dispatch(reinice())
+}
+
   
 
 
@@ -32,7 +36,7 @@ function Nav() {
       <Link to='/' className={style.linkTitle}><h1 className={style.title}>Dogbook</h1></Link>
       </div>
       <ul>
-        <li><Link to='/home' className={style.link}>Inicie </Link> </li>
+        <li onClick={()=> click()}><Link to='/home' className={style.link}>Inicie </Link> </li>
         <li><Link to='/form'className={style.link}>Create</Link></li>
         <li ><Link to='/about' className={style.link} >About</Link></li>
         <li><Link to='/collage' className={style.link}>Imagen</Link></li> 

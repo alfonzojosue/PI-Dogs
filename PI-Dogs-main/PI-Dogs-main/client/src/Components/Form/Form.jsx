@@ -54,7 +54,7 @@ const Form = () => {
       errors.max_life_span !== undefined 
     ) {
       e.preventDefault();
-      return alert("Sorry, all fields are required except image");
+      return alert("Error, missing data or some data is incorrect");
     } else if (
       state.name === errors ||
       state.min_height === "" ||
@@ -65,7 +65,7 @@ const Form = () => {
       state.max_life_span === ""
     ) {
       e.preventDefault();
-      return alert("Sorry, all fields are required except image");
+      return alert("Error, missing data or some data is incorrect");
     } else if (
       isNaN(parseInt(state.min_height)) ||
       isNaN(parseInt(state.max_height)) ||
@@ -169,23 +169,25 @@ function addTemp(e) {
         <input type="text" className={style.inputMin} name="min_weight" value={state.min_weight} onChange={(e) => handleChange(e)} />
         <label htmlFor="" className={style.max}>Max</label>
         <input type="text" className={style.inputMin} name="max_weight" value={state.max_weight} onChange={(e) => handleChange(e)}/>
+         {errors.min_weight?  <p className={style.error}>{errors.min_weight}</p> : ''}
+        {errors.max_weight? <p className={style.error}>{errors.max_weight}</p> : ''}
         </div>
         <div>
         <p className={style.text}>Height</p>
         <label htmlFor="" className={style.min}>Min</label>
         <input type="text" className={style.inputMin} name="min_height" value={state.min_height} onChange={(e) => handleChange(e)} />
-         {errors.min_height?  <p className={style.error}>{errors.min_height}</p> : ''}
         <label htmlFor="" className={style.max}>Max</label>
         <input type="text" className={style.inputMin} name="max_height" value={state.max_height} onChange={(e) => handleChange(e)}  />
+        {errors.min_height?  <p className={style.error}>{errors.min_height}</p> : ''}
         {errors.max_height? <p className={style.error}>{errors.max_height}</p> : ''}
         </div>
         <div>
         <p className={style.text}>Life Span</p>
         <label htmlFor="" className={style.min}>Min</label>
         <input type="text" className={style.inputMin} name="min_life_span" value={state.min_life_span} onChange={(e) => handleChange(e)} />
-          {errors.min_life_span?  (<p className={style.error}>{errors.min_life_span}</p>): ''}
         <label htmlFor="" className={style.max}>Max</label>
         <input type="text" className={style.inputMin} name="max_life_span" value={state.max_life_span} onChange={(e) => handleChange(e)}  />
+        {errors.min_life_span?  (<p className={style.error}>{errors.min_life_span}</p>): ''}
         {errors.max_life_span? (<p className={style.error}>{errors.max_life_span}</p>) : ''}
         </div>
         <label htmlFor="">Imagen</label>
