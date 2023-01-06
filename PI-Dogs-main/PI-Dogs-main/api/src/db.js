@@ -2,10 +2,9 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-
-  export const DB_USER = process.env.DB_USER  || postgres
-  export const DB_PASSWORD = process.env.DB_PASSWORD || 12345
-  export const DB_HOST = process.env.DB_HOST || localhost
+ const DB_USER = process.env.DB_USER  || postgres
+ const DB_PASSWORD = process.env.DB_PASSWORD || 12345
+ const DB_HOST = process.env.DB_HOST || localhost
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/dogs`, {
   logging: false, // set to console.log to see the raw SQL queries
