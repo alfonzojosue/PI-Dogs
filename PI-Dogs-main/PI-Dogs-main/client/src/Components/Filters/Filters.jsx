@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import { getDogByTemperaments, getDogs, getTemperament, handleAlphabeticChange, handleWeightChange, reinice, getDogDbOrApi } from '../../redux/actions/actions.js';
+import { getDogByTemperaments, getDogs, getTemperament, handleAlphabeticChange, handleWeightChange, reinice, getDogDbOrApi, menorLifeSpan} from '../../redux/actions/actions.js';
 import style from './Filters.module.css'
 
 
@@ -28,6 +28,14 @@ const handleAlphaChange =(e) => {
 const handleWChange = (e) => {
   if(e.target.value !== ''){
     dispatch(handleWeightChange(e.target.value))
+  }else {
+    dispatch(getDogs())
+  }
+}
+
+const handleLifeSpan = (e) => {
+  if(e.target.value !== ''){
+    dispatch(menorLifeSpan(e.target.value))
   }else {
     dispatch(getDogs())
   }
@@ -84,6 +92,15 @@ const handleDogApiOrDb = (e) => {
                 <option value={element.name} key={element.id}>{element.name} </option>
             ))}
         </select>
+            </div>
+             <div className={style.filter}>
+              <select onChange={(e) => handleLifeSpan(e)} className={style.selectFilter}>
+                <option value="" key="bothWeight">
+                  Menor Order
+                </option>
+                <option value="<" key="<">Minor to life</option>
+                <option value=">" key=">">Major to life</option>
+              </select>
             </div>
              <div className={style.filter}>
               <select onChange={(e) => handleDogApiOrDb(e)} className={style.selectFilter}>

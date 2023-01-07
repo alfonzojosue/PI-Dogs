@@ -3,7 +3,10 @@ import style from './Card.module.css'
 import { Link } from 'react-router-dom'
 
 
-const Card =({data, lastPage, firstPage}) => {
+const Card =({data, lastPage, firstPage}) => 
+{
+
+  
   return (
     <>
     {data? 

@@ -9,6 +9,7 @@ export const CREATE_DOG = "CREATE_DOG"
 export const HANDLE_ALPHABETIC_CHANGE = "HANDLE_ALPHABETIC_CHANGE";
 export const HANDLE_WEIGHT_CHANGE = "HANDLE_WEIGHT_CHANGE";
 export const GET_DOG_DB_OR_API = "GET_DOG_DB_OR_API"
+export const MENOR_LIFE_SPAN = "MENOR_LIFE_SPAN"
 
 
 export const getDogs = () => {
@@ -84,6 +85,13 @@ export function handleWeightChange(order) {
     type: HANDLE_WEIGHT_CHANGE,
     payload: order,
   };
+}
+
+export function menorLifeSpan(order){
+  return {
+    type: MENOR_LIFE_SPAN,
+    payload: order
+  }
 }
 
 export function getDogByTemperaments(temperament) {

@@ -8,7 +8,8 @@ import {
   GET_DOG_BY_TEMPERAMENTS,
   REINICE,
   CREATE_DOG,
-  GET_DOG_DB_OR_API
+  GET_DOG_DB_OR_API,
+  MENOR_LIFE_SPAN
  } from "../actions/actions.js";
 
 const initialState = {
@@ -69,6 +70,29 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 filterDog: [...sortedWeight],
             };
+      
+            case MENOR_LIFE_SPAN: 
+            const menorLifeSpan = [...state.dogs]
+            if(action.payload === '<'){
+              const array = menorLifeSpan.filter(e => e.life_span.split("-")[0] < 10)
+              return{
+                ...state,
+                filterDog: [...array]
+              }
+            }
+            if(action.payload === '>'){
+              const array = menorLifeSpan.filter(e => e.life_span.split("-")[0] > 10)
+              return{
+                ...state,
+                filterDog: [...array]
+              }
+            }
+
+            return {
+              ...state,
+              filterDog: []
+            };
+
 
     case GET_DOG_BY_TEMPERAMENTS:
             const temperament = action.payload
