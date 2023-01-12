@@ -14,7 +14,7 @@ export const MENOR_LIFE_SPAN = "MENOR_LIFE_SPAN"
 
 export const getDogs = () => {
  return function (dispatch) {
-      fetch("dogs")
+      fetch("https://pi-dogs-production-96e5.up.railway.app/dogs")
       .then((response) => {
         return response.json();
       })
@@ -30,7 +30,7 @@ export const getDogs = () => {
 
 export const getDogByName = (name) => {
   return function (dispatch) {
-    axios.get("dogs?name=" + name)
+    axios.get("https://pi-dogs-production-96e5.up.railway.app/dogs?name=" + name)
     .then((dog) => {
       dispatch({
         type: GET_DOGS_BY_NAME,
@@ -42,7 +42,7 @@ export const getDogByName = (name) => {
 
 export const getDogById = (id) => {
   return async function(dispatch) {
-   const dogs = await axios.get(`dogs/${id}`)
+   const dogs = await axios.get(`https://pi-dogs-production-96e5.up.railway.app/dogs/${id}`)
    dispatch({
     type: GET_DOGS_BY_ID,
     payload: dogs.data
@@ -52,7 +52,7 @@ export const getDogById = (id) => {
 
 export const getTemperament = () => {
  return async function  (dispatch) {
-    const temperaments = await axios.get('temperament')
+    const temperaments = await axios.get('https://pi-dogs-production-96e5.up.railway.app/temperament')
     dispatch({
       type: GET_TEMPERAMENTS,
       payload: temperaments.data
@@ -62,7 +62,7 @@ export const getTemperament = () => {
 
 export const createDog = (dog) => {
   return async function(dispatch){
-    const newdog = await axios.post("dogs", dog)
+    const newdog = await axios.post("https://pi-dogs-production-96e5.up.railway.app/dogs", dog)
     dispatch({
       type: CREATE_DOG,
       payload: newdog.data,
