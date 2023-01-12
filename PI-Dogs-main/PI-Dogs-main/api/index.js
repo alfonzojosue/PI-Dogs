@@ -24,7 +24,7 @@ const {PORT} = require('./confing.js')
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
-  server.listen(PORT, () => {
+  server.listen(DB_PORT, () => {
     console.log(`%s listening at `,PORT); // eslint-disable-line no-console
   });
 });
