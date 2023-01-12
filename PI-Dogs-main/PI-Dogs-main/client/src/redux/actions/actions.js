@@ -30,7 +30,7 @@ export const getDogs = () => {
 
 export const getDogByName = (name) => {
   return function (dispatch) {
-    axios.get("http://localhost:3001/dogs?name=" + name)
+    axios.get("dogs?name=" + name)
     .then((dog) => {
       dispatch({
         type: GET_DOGS_BY_NAME,
@@ -42,7 +42,7 @@ export const getDogByName = (name) => {
 
 export const getDogById = (id) => {
   return async function(dispatch) {
-   const dogs = await axios.get(`http://localhost:3001/dogs/${id}`)
+   const dogs = await axios.get(`dogs/${id}`)
    dispatch({
     type: GET_DOGS_BY_ID,
     payload: dogs.data
@@ -52,7 +52,7 @@ export const getDogById = (id) => {
 
 export const getTemperament = () => {
  return async function  (dispatch) {
-    const temperaments = await axios.get('http://localhost:3001/temperament')
+    const temperaments = await axios.get('temperament')
     dispatch({
       type: GET_TEMPERAMENTS,
       payload: temperaments.data
@@ -62,7 +62,7 @@ export const getTemperament = () => {
 
 export const createDog = (dog) => {
   return async function(dispatch){
-    const newdog = await axios.post("http://localhost:3001/dogs", dog)
+    const newdog = await axios.post("dogs", dog)
     dispatch({
       type: CREATE_DOG,
       payload: newdog.data,
