@@ -23,7 +23,7 @@ const {DB_PORT} = process.env
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(DB_PORT, () => {
-    console.log(`%s listening at ${DB_PORT}`); // eslint-disable-line no-console
+  server.listen(5775, () => {
+    console.log(`%s listening at 5775`); // eslint-disable-line no-console
   });
 });
