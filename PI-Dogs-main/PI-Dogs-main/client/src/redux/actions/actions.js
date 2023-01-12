@@ -14,7 +14,7 @@ export const MENOR_LIFE_SPAN = "MENOR_LIFE_SPAN"
 
 export const getDogs = () => {
  return function (dispatch) {
-      fetch("http://localhost:3001/dogs")
+      fetch("dogs")
       .then((response) => {
         return response.json();
       })
